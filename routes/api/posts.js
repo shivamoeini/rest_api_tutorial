@@ -6,7 +6,7 @@ const Posts=require("../../models/posts");
 // @desc create an post
 
 router.post('/',(req,res)=>{
-    res.send(`Let's create Post!`);
+  console.log(req.body);
 
 });
 module.exports=router;

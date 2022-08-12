@@ -1,5 +1,5 @@
-const { default: mongoose } = require("mongoose");
-const mongooe=require("mongoose");
+
+const mongoose=require("mongoose");
 const Schema=mongoose.Schema;
 
 const PostSchema=new Schema({
@@ -16,5 +16,5 @@ const PostSchema=new Schema({
         default:Date.now,
     }
 });
-module.exports=mongoose.module("Posts",PostSchema)
+module.exports=mongoose.model("Posts",PostSchema)
 
