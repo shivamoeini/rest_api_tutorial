@@ -1,6 +1,9 @@
 const express=require('express');
 const mongoose =require('mongoose');
 const{ MOUNGO_URI}=require('./config')
+
+// routes
+const postsRoutes=require("./routes/api/posts")
 const app=express();
 // connect to mongodb
 mongoose.connect( MOUNGO_URI,{
