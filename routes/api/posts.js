@@ -16,7 +16,8 @@ res.status(200).json(posts);
 });
 
 
-
+//@routes post api/posts
+// @desc post ALL post
 router.post('/',async(req,res)=>{
 
     const newPost=new Posts(req.body);
@@ -29,4 +30,23 @@ router.post('/',async(req,res)=>{
     }
 
 });
+
+
+//@routes delet api/posts
+// @desc delet An post
+
+router.delete('/:id', async(req,res)=>{
+try{
+const post=await Posts.findByIdAndDelete(req.params.id);
+if(!post)throw Error('No post found!');
+res.status(200).json({success:true})
+}catch(err){
+res.status(400).json({msg:err})
+}
+});
+ 
+
+//@routes delet api/posts
+// @desc delet An post
+
 module.exports=router;
