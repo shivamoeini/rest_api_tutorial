@@ -46,7 +46,15 @@ res.status(400).json({msg:err})
 });
  
 
-//@routes delet api/posts
-// @desc delet An post
-
+//@routes update api/posts
+// @desc update An post
+router.patch('/:id',async(req,res)=>{
+    try{
+    const post=await Posts.findByIdAndUpdate(req.params.id,req.body);
+    if(!post)throw Error("something went wrong while update the post!");
+    res.status(200).json({success:true});
+    }catch(err){
+        res.status(400).json({msg:err});
+    }
+})
 module.exports=router;
