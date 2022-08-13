@@ -4,16 +4,16 @@ const router=express.Router();
 const Posts=require("../../models/posts");
 //@routes Get api/posts
 // @desc Get ALL post
-router.get('/', async(req,rs)=>{
+
+router.get('/', async(req,res)=>{
     try{
 const posts=await Posts.find();
 if(!posts)throw Error('No Items');
 res.status(200).json(posts);
     }catch(err){
-res.status(400).json({msg:err})
+        res.status(400).json({msg:err})
     }
 });
-
 
 
 
